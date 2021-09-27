@@ -1,9 +1,14 @@
-html,
-body {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+
+* {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0e14a;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -11,6 +16,68 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+h1 {
+  color: #97ce4c;
+  text-align: center;
+  margin: 1rem;
+}
+
+.grid {
+  width: 90vw;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  width: 29vw;
+  height: 29vw;
+  margin-bottom: 1rem;
+}
+
+.card img {
+  border-radius: 1rem;
+  width: 100%;
+  height: auto;
+  border: 0.3rem #e89ac7 solid;
+}
+
+.card-content {
+  display: none;
+  position: absolute;
+  color: #97ce4c;
+  width: max-content;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.6);
+  left: 50%;
+  border-radius: 1rem;
+  transform: translate(-50%);
+  bottom: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.card:hover .card-content {
+  display: revert;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    position: relative;
+    width: 44vw;
+    height: 44vw;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    position: relative;
+    width: 90vw;
+    height: 90vw;
+    margin-bottom: 1rem;
+  }
 }
