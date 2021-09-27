@@ -32,7 +32,7 @@ img {
 }
 
 .logo {
-  width: 90%;
+  max-width: 90%;
   margin: 1rem auto;
 }
 
