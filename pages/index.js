@@ -1,3 +1,4 @@
+import Head from "next/head";
 import CharacterCard from "../components/CharacterCard";
 import { Pagination, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -27,6 +28,9 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+        <title>Rick And Morty</title>
+      </Head>
       <h1>Rick And Morty</h1>
       <div className="grid">
         {characters.map((c) => (
