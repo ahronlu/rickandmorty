@@ -1,27 +1,8 @@
 import Head from "next/head";
+import Link from "next/link";
 import CharacterCard from "../components/CharacterCard";
-import { Pagination, Stack } from "@mui/material";
-import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [characters, setCharacters] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pages, setPages] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { results, info } = await (
-        await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
-      ).json();
-
-      setCharacters(results);
-      setPages(info.pages);
-      setCount(info.count);
-    };
-    getData();
-  }, [page]);
-
+export default function Home({ page, characters, pages, count }) {
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -37,16 +18,32 @@ export default function Home() {
           <CharacterCard key={c.id} character={c} />
         ))}
       </div>
-      <Stack spacing={2} mt={2}>
-        <Pagination
-          count={pages}
-          page={page}
-          onChange={handleChange}
-          variant="outlined"
-        />
-      </Stack>
+      <div className="paging">
+        {Number(page) > 1 && (
+          <Link href={`/?page=${Number(page) - 1}`}>&#8592; </Link>
+        )}
+
+        {Number(page) < pages && (
+          <Link href={`/?page=${Number(page) + 1}`}>&#8594; </Link>
+        )}
+      </div>
     </div>
   );
 }
 
-// export async function getServerSideProps() {}
+export async function getServerSideProps({ query }) {
+  const { results, info } = await (
+    await fetch(
+      `https://rickandmortyapi.com/api/character?page=${query?.page || 1}`
+    )
+  ).json();
+
+  return {
+    props: {
+      page: query?.page || 1,
+      characters: results,
+      pages: info.pages,
+      count: info.count,
+    },
+  };
+}

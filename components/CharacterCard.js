@@ -10,7 +10,7 @@ export default function CharacterCard({ character }) {
       <div className="card-content">
         <h2>{name}</h2>
         <p>
-          {status} {species} {gender}
+          {status} {species}
           <br />
           Origin: {origin.name}
           <br />

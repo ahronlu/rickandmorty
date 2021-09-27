@@ -11,6 +11,11 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+button {
+  border: unset;
+  background-color: unset;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -62,6 +67,16 @@ h1 {
 
 .card:hover .card-content {
   display: revert;
+}
+
+.paging a {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.paging {
+  margin: 0rem auto 1rem;
+  width: max-content;
 }
 
 @media (max-width: 1024px) {
