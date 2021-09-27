@@ -27,6 +27,10 @@ h1 {
   margin: 1rem;
 }
 
+.logo {
+  margin: 1rem auto;
+}
+
 .grid {
   width: 90vw;
   margin: 0 auto;
