@@ -12,7 +12,7 @@ export default function Home({ page, characters, pages, count }) {
       <Head>
         <title>Rick And Morty</title>
       </Head>
-      <h1>Rick And Morty</h1>
+      <img className="logo" src="logo.svg" alt="logo" />
       <div className="grid">
         {characters.map((c) => (
           <CharacterCard key={c.id} character={c} />
